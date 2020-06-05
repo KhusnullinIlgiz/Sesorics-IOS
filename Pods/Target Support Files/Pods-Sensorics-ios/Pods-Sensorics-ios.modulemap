@@ -1,0 +1,6 @@
+module Pods_Sensorics_ios {
+  umbrella header "Pods-Sensorics-ios-umbrella.h"
+
+  export *
+  module * { export * }
+}

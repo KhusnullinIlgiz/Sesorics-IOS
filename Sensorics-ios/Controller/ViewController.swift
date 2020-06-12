@@ -115,7 +115,6 @@ extension ViewController: BaconManagerDelegate{
         DispatchQueue.main.async {
             self.periferalsArray = periferals
             if !self.periferalsArray.isEmpty{
-                self.popupTableView.isHidden = false
                 self.foundDevice.isHidden = true
             }
             
@@ -125,6 +124,10 @@ extension ViewController: BaconManagerDelegate{
                     if self.periferalsArray.contains(n){
                         self.periferalsArray.remove(at: self.periferalsArray.firstIndex(of: n)!)
                     }
+                }
+                
+                if self.periferalsArray.isEmpty{
+                    self.foundDevice.isHidden = false
                 }
             }
             
@@ -224,7 +227,7 @@ extension ViewController{
     }
     
     
-    @IBAction func addButtonPressed(_ sender: UIButton) {
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         indicatorSpin.startAnimating()
         centralManager = CBCentralManager(delegate: self, queue: nil)
         animateIn(desiredView: blurView)

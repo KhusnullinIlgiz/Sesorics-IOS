@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MDl-Xc-flc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MDl-Xc-flc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -58,19 +58,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2b-Sk-rp1">
-                                <rect key="frame" x="344" y="812" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="XVd-uq-nFA"/>
-                                    <constraint firstAttribute="height" constant="50" id="fru-T4-s9M"/>
-                                </constraints>
-                                <state key="normal" title="Button" backgroundImage="add_button">
-                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="addButtonPressed:" destination="W7E-wd-vXu" eventType="touchUpInside" id="4tU-TX-fZf"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Sx-hP-B7s">
                                 <rect key="frame" x="32" y="551" width="350" height="61"/>
                                 <constraints>
@@ -88,14 +75,19 @@
                             <constraint firstItem="d3D-nd-HVA" firstAttribute="top" secondItem="Tiw-Dx-FaC" secondAttribute="top" id="5JG-pG-MKE"/>
                             <constraint firstAttribute="bottomMargin" secondItem="9Sx-hP-B7s" secondAttribute="bottom" constant="250" id="R2K-He-sQL"/>
                             <constraint firstItem="9Sx-hP-B7s" firstAttribute="centerX" secondItem="JE3-LD-ipI" secondAttribute="centerX" id="Ttz-d1-XXw"/>
-                            <constraint firstItem="c2b-Sk-rp1" firstAttribute="bottom" secondItem="Tiw-Dx-FaC" secondAttribute="bottom" id="jw9-Dq-xk2"/>
                             <constraint firstItem="d3D-nd-HVA" firstAttribute="leading" secondItem="JE3-LD-ipI" secondAttribute="leading" id="kmi-Pf-VqP"/>
-                            <constraint firstItem="c2b-Sk-rp1" firstAttribute="trailing" secondItem="JE3-LD-ipI" secondAttribute="trailingMargin" id="xUQ-YP-mUV"/>
                             <constraint firstAttribute="trailing" secondItem="d3D-nd-HVA" secondAttribute="trailing" id="xfk-OZ-bv1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Tiw-Dx-FaC"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Devices" id="CnD-KP-190"/>
+                    <navigationItem key="navigationItem" title="Devices" id="CnD-KP-190">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PWA-e0-Mre">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="W7E-wd-vXu" id="hpF-yO-U9m"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="blurView" destination="V0Z-pJ-PJr" id="9dj-1m-dVw"/>
                         <outlet property="deviceLabel" destination="9Sx-hP-B7s" id="NX9-0o-zUR"/>
@@ -1284,7 +1276,6 @@
     </scenes>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
-        <image name="add_button" width="700" height="700"/>
         <image name="ic_acc" width="67.5" height="67.5"/>
         <image name="ic_compass" width="67.5" height="67.5"/>
         <image name="ic_gyro" width="67.5" height="67.5"/>

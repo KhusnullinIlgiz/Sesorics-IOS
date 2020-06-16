@@ -8,4 +8,5 @@ target 'Sensorics-ios' do
 
     pod 'RealmSwift'
     pod 'Charts'
+    pod 'SwipeCellKit'
 end

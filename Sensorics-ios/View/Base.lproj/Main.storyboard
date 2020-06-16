@@ -30,25 +30,24 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_sensa" translatesAutoresizingMaskIntoConstraints="NO" id="FcQ-1m-f6U">
-                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                    <rect key="frame" x="10" y="-3" width="50" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="44" id="RFr-s0-Zgp"/>
-                                                        <constraint firstAttribute="height" constant="44" id="dmH-A5-ygH"/>
+                                                        <constraint firstAttribute="width" constant="50" id="RFr-s0-Zgp"/>
+                                                        <constraint firstAttribute="height" constant="50" id="dmH-A5-ygH"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8J-T4-APL">
-                                                    <rect key="frame" x="54" y="11.5" width="42" height="21"/>
+                                                    <rect key="frame" x="70" y="11.5" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Z8J-T4-APL" firstAttribute="leading" secondItem="FcQ-1m-f6U" secondAttribute="trailing" constant="10" id="BD5-OF-K8d"/>
-                                                <constraint firstItem="FcQ-1m-f6U" firstAttribute="top" secondItem="ldu-E6-K9L" secondAttribute="top" id="Msm-98-X1n"/>
-                                                <constraint firstItem="FcQ-1m-f6U" firstAttribute="leading" secondItem="ldu-E6-K9L" secondAttribute="leading" id="arD-7W-CE4"/>
+                                                <constraint firstItem="Z8J-T4-APL" firstAttribute="leading" secondItem="FcQ-1m-f6U" secondAttribute="trailing" constant="10" id="OTm-el-sf3"/>
+                                                <constraint firstItem="FcQ-1m-f6U" firstAttribute="centerY" secondItem="ldu-E6-K9L" secondAttribute="centerY" id="h05-b1-I5z"/>
                                                 <constraint firstItem="Z8J-T4-APL" firstAttribute="centerY" secondItem="ldu-E6-K9L" secondAttribute="centerY" id="hn4-SQ-yda"/>
-                                                <constraint firstAttribute="bottom" secondItem="FcQ-1m-f6U" secondAttribute="bottom" id="s2o-nc-Kb2"/>
+                                                <constraint firstItem="FcQ-1m-f6U" firstAttribute="leading" secondItem="ldu-E6-K9L" secondAttribute="leading" constant="10" id="w4c-Hz-BYt"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

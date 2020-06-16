@@ -8,15 +8,16 @@
 
 import UIKit
 import CoreBluetooth
+import SwipeCellKit
 
 //used for mainTableView and popupTableView
-class BeaconsViewControllerCell: UITableViewCell{
+class BeaconsViewControllerCell: SwipeTableViewCell{
     @IBOutlet weak var mainCellLable: UILabel!
     @IBOutlet weak var mainCellImageView: UIImageView!
     @IBOutlet weak var popupCellLable: UILabel!
 }
 
-class ViewController: UIViewController  {
+class ViewController: UIViewController   {
     
     var centralManager: CBCentralManager!
     var beaconManager = BeaconManager()
@@ -47,6 +48,7 @@ class ViewController: UIViewController  {
         blurView.backgroundColor = .darkGray
         popupView.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.9, height: self.view.bounds.height * 0.35)
         popupView.layer.cornerRadius = popupView.frame.height / 15
+        mainTableView.rowHeight = 80.0
         
     }
     
@@ -146,7 +148,11 @@ extension ViewController: BaconManagerDelegate{
 }
 
 //MARK: - Table View Update
-extension ViewController: UITableViewDataSource{
+extension ViewController: UITableViewDataSource, SwipeTableViewCellDelegate{
+    
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
         
@@ -165,6 +171,7 @@ extension ViewController: UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! BeaconsViewControllerCell
             let beaconName = chosenPeriferalsArray[indexPath.row]
             cell.mainCellLable?.text = beaconName.beaconName
+            cell.delegate = self
 
                        return cell
         }else{
@@ -175,6 +182,32 @@ extension ViewController: UITableViewDataSource{
                        return cell
         }
        
+    }
+    
+ // SwipeCell delete button appears
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            
+            
+            self.chosenPeriferalsArray.remove(at: indexPath.row)
+            if self.chosenPeriferalsArray.isEmpty{
+                self.deviceLabel.isHidden = false
+            }
+            //self.mainTableView.reloadData()
+        }
+
+        // customize the action appearance
+        deleteAction.image = UIImage(named: "deleteIcon")
+
+        return [deleteAction]
+    }
+ // Swipe Cell to the right for automatical remove
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        options.expansionStyle = .destructive
+        return options
     }
     
 }
